@@ -32,8 +32,9 @@ function add_task(){
     <p>${more_details}</p>
     </div>
     </div>
+    <img src="editing.png" alt="edit" id="edit">
     <img src="WhatsApp_Image_2025-01-02_at_11.41.14_6b45f130-removebg-preview.png" alt="tick" id="tick">
-    <img src="delete.png" alt="delete" onclick="delete_it('task${no_of_tasks}')">
+    <img src="delete.png" id ="delete" alt="delete" onclick="delete_it('task${no_of_tasks}')">
     </div>`
     title=""
     by=""
