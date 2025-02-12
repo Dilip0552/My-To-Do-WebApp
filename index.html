@@ -11,10 +11,13 @@
         <div id="header">
             <img src="planning (1).png"></img>
             <h3>Tasks Lists</h3>
+            <div id="refresh">
+                <img id="refreshImg" src="loading-arrow.png" alt="">
+            </div>
         </div>
         <div id="tasks">
              <hr id="hr-vip1">
-            <div id="vip1" class="task">
+            <!-- <div id="vip1" class="task">
                 <input type="checkbox" name="task_status" class="checkbox">
                 <div class="content">
                     <p>Call Sam for payments</p>
@@ -68,7 +71,7 @@
                 <img src="editing.png" alt="edit" id="edit">
                 <img src="WhatsApp_Image_2025-01-02_at_11.41.14_6b45f130-removebg-preview.png" alt="tick" id="tick">
                 <img src="delete.png" alt="delete" id="delete" onclick="delete_it('vip3')">
-            </div>
+            </div> -->
             
         </div>
         <div id="options">
@@ -91,8 +94,28 @@
                 <input type="text" id="tag" placeholder="Tag"  class="d_inp" required>
             </div>
             <div id="new_task_option">
-                <button id="cancel" onclick="document.getElementById('new_task').style.visibility='hidden'">Cancel</button>
+                <button id="cancel" class="cancel" onclick="document.getElementById('new_task').style.visibility='hidden'">Cancel</button>
                 <button id="add_task" class="blue_button" onclick="add_task()">Add Task</button>
+            </div>
+    </div>
+    <div id="edit-task">
+        <h1>Edit Task</h1>
+        <hr>
+            <div class="wrapper" data-place="--Title--">
+                <input type="text" id="e_title" placeholder="Task Title"  class="d_inp" required readonly>
+            </div>
+            <div class="wrapper" data-place="--By--">
+                <input type="text" id="e_by-name" placeholder="By"  class="d_inp" required>
+            </div>
+            <div class="wrapper" data-place="--More Details--">
+                <input type="text" id="e_more-details" placeholder="More Details"  class="d_inp" required>
+            </div>
+            <div class="wrapper" data-place="--Tag--">
+                <input type="text" id="e_tag" placeholder="Tag"  class="d_inp" required>
+            </div>
+            <div id="new_task_option">
+                <button id="e_cancel" class="cancel" onclick="document.getElementById('edit-task').style.visibility='hidden'">Cancel</button>
+                <button id="save" class="blue_button" onclick="save()">Save</button>
             </div>
     </div>
     <div id="error">Not Compatible for your device.</div>

@@ -74,7 +74,7 @@ body{
     
 }
 
-#cancel{
+.cancel{
     font-size:16px;
     border:none;
     background-color: transparent;
@@ -85,7 +85,7 @@ body{
 
 }
 
-#cancel:hover{
+.cancel:hover{
     background-color: rgb(223, 223, 223);
     border-radius:4px;
 }
@@ -210,7 +210,21 @@ body{
 .content:hover:active #details{
     transform: scale(1.02);
 }
+#edit-task{
+    visibility: hidden;
+    position:fixed;
+    width:50vw;
+    height:60vh;
+    background-color: rgba(255,255,255,0.2);
+    backdrop-filter: blur(8px);
+    border-radius: 10px;
+    border:2px solid grey;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding:15px
 
+}
 #new_task{
     visibility: hidden;
     position:fixed;
@@ -317,6 +331,17 @@ hr{
     border-radius: 10px;
     padding:20px
 }
+
+
+#refresh img{
+    margin-left: 15px;
+    transition:transform 0.18s ease-in-out ;
+    cursor:pointer
+}
+#refresh img.rotated {
+    transform: rotate(180deg);
+}
+
 
 @media (max-width:500px){
     #error{
