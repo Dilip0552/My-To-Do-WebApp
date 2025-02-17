@@ -55,9 +55,9 @@ def getItem(title):
         db=client["To-Do"]
         collection=db["details"]
         one=collection.find_one({"title":title})
-        one["_id"] = str(one["_id"])
         if not one: 
             return JSONResponse(content={"message": "Task not found"}, status_code=404)
+        one["_id"] = str(one["_id"])
 
         return one
     except Exception as e:
