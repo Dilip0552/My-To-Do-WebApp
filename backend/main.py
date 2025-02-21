@@ -2,6 +2,7 @@ from fastapi import FastAPI, Form
 from pydantic import BaseModel
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
+from fastapi.staticfiles import StaticFiles
 import pymongo
 import os
 from dotenv import load_dotenv
@@ -9,6 +10,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 app=FastAPI()
+app.mount("/", StaticFiles(directory="frontend", html=True), name="static")
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
