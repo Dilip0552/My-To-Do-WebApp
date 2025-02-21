@@ -84,9 +84,9 @@ function add_task(){
     <p>${more_details}</p>
     </div>
     </div>
-    <img src="editing.png" alt="edit" id="edit" onclick="edit_task(${title})>
-    <img src="WhatsApp_Image_2025-01-02_at_11.41.14_6b45f130-removebg-preview.png" alt="tick" id="tick">
-    <img src="delete.png" id ="delete" alt="delete" onclick="delete_it('task${no_of_tasks}','${title}')">
+    <img src="assets/editing.png" alt="edit" id="edit" onclick="edit_task(${title})>
+    <img src="assets/WhatsApp_Image_2025-01-02_at_11.41.14_6b45f130-removebg-preview.png" alt="tick" id="tick">
+    <img src="assets/delete.png" id ="delete" alt="delete" onclick="delete_it('task${no_of_tasks}','${title}')">
     </div>`
     send_data(title,by,more_details)
     title=""
@@ -136,9 +136,9 @@ function add_task_bh(dict){
     <p>${dict.more_details}</p>
     </div>
     </div>
-    <img src="editing.png" alt="edit" id="edit" onclick="edit_task('${dict.title}')">
-    <img src="WhatsApp_Image_2025-01-02_at_11.41.14_6b45f130-removebg-preview.png" alt="tick" id="tick">
-    <img src="delete.png" id ="delete" alt="delete" onclick="delete_it('task${no_of_tasks}','${dict.title}')">
+    <img src="assets/editing.png" alt="edit" id="edit" onclick="edit_task('${dict.title}')">
+    <img src="assets/WhatsApp_Image_2025-01-02_at_11.41.14_6b45f130-removebg-preview.png" alt="tick" id="tick">
+    <img src="assets/delete.png" id ="delete" alt="delete" onclick="delete_it('task${no_of_tasks}','${dict.title}')">
     </div>`
     let colors=["Blue","Green","Red","Pink","Yellow","lightpink","black","grey","purple","cyan"]
     let randomColor=colors[Math.floor(Math.random()*colors.length)];
