@@ -10,7 +10,6 @@ from dotenv import load_dotenv
 load_dotenv()
 
 app=FastAPI()
-app.mount("/", StaticFiles(directory="frontend", html=True), name="static")
 origins = [
     "https://my-to-do-web-app-p85l.vercel.app",  # Your frontend URL
     "https://mytodowebapp.vercel.app",  # Your backend URL (optional)
