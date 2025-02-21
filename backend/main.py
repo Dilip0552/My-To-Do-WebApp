@@ -30,6 +30,8 @@ class UserData(BaseModel):
     more_details:str
 
 MONGO_URI = os.getenv("MONGO_URI")
+if not MONGO_URI:
+    raise ValueError("❌ MONGO_URI is not set in environment variables!")
 
 @app.post("/add_task")
 def add_task(data:UserData):
