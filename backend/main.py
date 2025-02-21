@@ -7,6 +7,7 @@ import pymongo
 import os
 from dotenv import load_dotenv
 
+
 load_dotenv()
 
 app=FastAPI()
@@ -93,5 +94,3 @@ def delete_it(title):
     except Exception as e:
         return JSONResponse(content={"error": str(e)}, status_code=500)
     
-def handler(event, context):
-    return app
