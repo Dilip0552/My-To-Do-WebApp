@@ -13,7 +13,7 @@ load_dotenv()
 app=FastAPI()
 origins = [
     "https://my-to-do-web-app-p85l.vercel.app",  # Your frontend URL
-    "https://mytodowebapp.vercel.app",  # Your backend URL (optional)
+    "https://my-to-do-web-app.vercel.app/",  # Your backend URL (optional)
 ]
 
 app.add_middleware(
