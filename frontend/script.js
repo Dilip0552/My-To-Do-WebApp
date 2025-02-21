@@ -13,7 +13,7 @@ function new_task(){
 
 
 async function send_data(title,by,more_details){
-    const response = await fetch("http://127.0.0.1:8000/add_task",{
+    const response = await fetch("https://mytodowebapp.vercel.app/add_task",{
         method:"POST",
         headers:{
             "Content-Type":"application/json"
@@ -30,7 +30,7 @@ async function edit_task(title){
     const e_title=document.getElementById("e_title")
     const e_by=document.getElementById("e_by-name")
     const e_more_details=document.getElementById("e_more-details")
-    const response = await fetch(`http://127.0.0.1:8000/my_tasks/${title}`);
+    const response = await fetch(`https://mytodowebapp.vercel.app/my_tasks/${title}`);
     const data = await response.json();
     // console.log(data)
     e_title.value=data.title;
@@ -49,7 +49,7 @@ async function save(){
     const e_by=document.getElementById("e_by-name").value;
     const e_more_details=document.getElementById("e_more-details").value;
     dict={"title":e_title, "by":e_by,"more_details":e_more_details}
-    const response = await fetch(`http://127.0.0.1:8000/update`, {
+    const response = await fetch(`https://mytodowebapp.vercel.app/update`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json"
@@ -110,7 +110,7 @@ async function delete_it(id,title){
     element1.remove();
     element2=document.getElementById(`hr-${id}`);
     element2.remove();
-    const response = await fetch(`http://127.0.0.1:8000/delete/${title}`, {
+    const response = await fetch(`https://mytodowebapp.vercel.app/delete/${title}`, {
         method: "DELETE",
         headers: {
             "Content-Type": "application/json"
@@ -149,7 +149,7 @@ function add_task_bh(dict){
 }
 
 async function refresh_tasks(){
-    const response = await fetch(`http://127.0.0.1:8000/my_tasks`);
+    const response = await fetch(`https://mytodowebapp.vercel.app/my_tasks`);
     const data = await response.json(); 
     // console.log(data);
     tasks=document.getElementById("tasks")
