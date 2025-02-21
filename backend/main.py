@@ -11,12 +11,17 @@ load_dotenv()
 
 app=FastAPI()
 app.mount("/", StaticFiles(directory="frontend", html=True), name="static")
+origins = [
+    "https://my-to-do-web-app-p85l.vercel.app",  # Your frontend URL
+    "https://mytodowebapp.vercel.app",  # Your backend URL (optional)
+]
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=origins,  # Allow frontend domain
     allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
+    allow_methods=["*"],  # Allow all HTTP methods (GET, POST, etc.)
+    allow_headers=["*"],  # Allow all headers
 )
 
 class UserData(BaseModel):
