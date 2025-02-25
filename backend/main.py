@@ -13,16 +13,16 @@ load_dotenv()
 
 app=FastAPI()
 origins = [
-    "https://my-to-do-web-app-p85l.vercel.app",  # Your frontend URL
-    "https://my-to-do-web-app.vercel.app/",  # Your backend URL (optional)
+    "https://my-to-do-web-app-p85l.vercel.app",  
+    "https://my-to-do-web-app.vercel.app/", 
 ]
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,  # Allow frontend domain
+    allow_origins=origins, 
     allow_credentials=True,
-    allow_methods=["*"],  # Allow all HTTP methods (GET, POST, etc.)
-    allow_headers=["*"],  # Allow all headers
+    allow_methods=["*"], 
+    allow_headers=["*"], 
 )
 
 class UserData(BaseModel):
