@@ -57,7 +57,7 @@ async function save(){
         body: JSON.stringify(dict)
     });
     const data = await response.json(); 
-    console.log(data)
+    console.log(data.message)
     alert(data.message)
     await refresh_tasks()
     el=document.getElementById("edit-task")
