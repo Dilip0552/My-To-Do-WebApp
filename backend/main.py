@@ -41,7 +41,7 @@ def add_task(data:UserData):
         db=client["To-Do"]
         collection=db["details"]
         collection.insert_one(data.dict())
-        return {"message":"Data Saved Successfully!","data":data.dict()}
+        return {"message":"Task Added Successfully!","data":data.dict()}
     except Exception as e:
         return {"message":"An error occurred"}
 
