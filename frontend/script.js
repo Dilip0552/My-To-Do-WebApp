@@ -58,7 +58,8 @@ async function save(){
     });
     const data = await response.json(); 
     console.log(data)
-    // alert("Saved")
+    alert(data.message)
+    await refresh_tasks()
     el=document.getElementById("edit-task")
     el.style.visibility="hidden"
 }
