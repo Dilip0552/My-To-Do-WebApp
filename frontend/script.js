@@ -164,10 +164,8 @@ async function refresh_tasks(){
     }
 
 }
-function toggle_refresh(){
-    document.getElementById("refreshImg").classList.toggle("rotated"); 
+document.getElementById("refreshImg").addEventListener("click", function() {
+    this.classList.toggle("rotated"); 
     refresh_tasks()
-}
-document.getElementById("refreshImg").addEventListener("click", toggle_refresh());
+});
 // window.addEventListener("load", refresh_tasks());
-window.onload=refresh_tasks()
