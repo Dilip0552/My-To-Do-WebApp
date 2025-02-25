@@ -115,10 +115,10 @@ async function delete_it(id,title){
         headers: {
             "Content-Type": "application/json"
         }
-        // body: JSON.stringify(dict)
     });
     const data = await response.json(); 
     console.log(data)
+    alert(data)
 }
 function add_task_bh(dict){
     tasks=document.getElementById("tasks")
