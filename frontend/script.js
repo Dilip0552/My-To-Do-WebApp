@@ -168,6 +168,6 @@ function toggle_refresh(){
     document.getElementById("refreshImg").classList.toggle("rotated"); 
     refresh_tasks()
 }
-refresh_img.addEventListener("click", toggle_refresh());
+document.getElementById("refreshImg").addEventListener("click", toggle_refresh());
 window.addEventListener("load", toggle_refresh);
 
