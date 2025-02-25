@@ -64,7 +64,7 @@ async function save(){
 }
 
 var no_of_tasks=1
-function add_task(){
+async function add_task(){
     title=document.getElementById("title").value
     by=document.getElementById("by-name").value
     tag=document.getElementById("tag").value
@@ -88,7 +88,7 @@ function add_task(){
     <img src="/assets/WhatsApp_Image_2025-01-02_at_11.41.14_6b45f130-removebg-preview.png" alt="tick" id="tick">
     <img src="/assets/delete.png" id ="delete" alt="delete" onclick="delete_it('task${no_of_tasks}','${title}')">
     </div>`
-    send_data(title,by,more_details)
+    await send_data(title,by,more_details)
     title=""
     by=""
     tag=""
@@ -97,7 +97,7 @@ function add_task(){
     console.log(no_of_tasks)
     checkbox=document.getElementById(`task${no_of_tasks}`)
     checkbox.style.setProperty("--before-background-color",randomColor);
-
+    await refresh_tasks()
     const dialog=document.getElementById("new_task")
     dialog.style.visibility="hidden"
     dialog.style.display="none"
@@ -117,8 +117,8 @@ async function delete_it(id,title){
         }
     });
     const data = await response.json(); 
-    console.log(data)
-    alert(data)
+    console.log(data.message)
+    alert(data.message)
 }
 function add_task_bh(dict){
     tasks=document.getElementById("tasks")
@@ -151,13 +151,16 @@ function add_task_bh(dict){
 async function refresh_tasks(){
     const response = await fetch(`https://my-to-do-web-app.vercel.app/my_tasks`);
     const data = await response.json(); 
-    // console.log(data);
-    tasks=document.getElementById("tasks")
-    tasks.innerHTML=""
-    data.tasks.forEach(element => {
-        add_task_bh(element)
-    });
-
+    if (data.message){
+        alert(data.message)
+    }
+    else{
+        tasks=document.getElementById("tasks")
+        tasks.innerHTML=""
+        data.tasks.forEach(element => {
+            add_task_bh(element)
+        });
+    }
 
 }
 
