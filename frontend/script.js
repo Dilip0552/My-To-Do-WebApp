@@ -168,4 +168,4 @@ document.getElementById("refreshImg").addEventListener("click", function() {
     this.classList.toggle("rotated"); 
     refresh_tasks()
 });
-// window.addEventListener("load", refresh_tasks());
+window.addEventListener("load", refresh_tasks());
