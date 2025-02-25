@@ -6,6 +6,7 @@ from fastapi.staticfiles import StaticFiles
 import pymongo
 import os
 from dotenv import load_dotenv
+from urllib.parse import unquote
 
 
 load_dotenv()
@@ -60,6 +61,7 @@ def refresh_tasks():
 @app.get("/my_tasks/{title}")
 def getItem(title):
     try:
+        title=unquote(title)
         client=pymongo.MongoClient(MONGO_URI)
         db=client["To-Do"]
         collection=db["details"]
@@ -87,6 +89,7 @@ def update_it(data: UserData):
 @app.delete("/delete/{title}")
 def delete_it(title):
     try:
+        title=unquote(title)
         client = pymongo.MongoClient(MONGO_URI)
         db = client["To-Do"]
         collection = db["details"]
