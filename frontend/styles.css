@@ -343,7 +343,7 @@ hr{
 }
 
 
-@media (max-width:500px){
+@media (max-width:660px){
     #error{
         visibility: visible;
     }
