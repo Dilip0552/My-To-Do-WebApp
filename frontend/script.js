@@ -180,7 +180,14 @@ window.addEventListener("load", refresh_tasks());
 
 
 
-
+document.getElementById("log-out-btn").addEventListener("click", () => {
+    fetch('/logout', { method: 'GET' }) 
+    .then(response => {
+        if (response.redirected) {
+            window.location.href = response.url; 
+        }
+    });
+});
 
 
 
