@@ -154,3 +154,6 @@ async def get_todos(request: Request):
         raise HTTPException(status_code=401, detail="Not authenticated")
     
     return {"message": f"Welcome {user}! Here are your To-Do tasks"}
+@app.get("/debug-session")
+async def debug_session(request: Request):
+    return {"session": request.session}
