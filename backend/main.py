@@ -147,7 +147,7 @@ def read_credentials(request:Request,login_cred:LoginData):
         if user["password"] != login_cred.password_login:
             raise HTTPException(status_code=401, detail="Invalid credentials")
 
-        request.session["user"] = login_cred.email_login  
+        request.session["user"] = user["fname"] 
         return {"message": "Login successful"}
 
     except Exception as e:
