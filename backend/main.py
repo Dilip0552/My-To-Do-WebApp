@@ -164,7 +164,10 @@ async def get_todos(request: Request):
     return {"message": f"Welcome {user}! Here are your To-Do tasks"}
 
 @app.get("/logout")
-def logout():
-    response = RedirectResponse(url="/credentials")
-    response.delete_cookie("session_id")
+def logout(request:Request):
+    response = RedirectResponse(url="/login")
+
+    if "session_id" in request.cookies:
+        response.delete_cookie("session_id", path="/")  # Ensure it's deleted for the whole site
+    
     return response
