@@ -163,7 +163,7 @@ async def get_todos(request: Request):
     
     return {"message": f"Welcome {user}! Here are your To-Do tasks"}
 
-@app.get("/logout")
+@app.get("/logout",methods=["GET","POST"])
 def logout(request:Request):
     response = RedirectResponse(url="/login")
 
