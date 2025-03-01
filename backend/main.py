@@ -3,6 +3,7 @@ from pydantic import BaseModel
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 from fastapi.staticfiles import StaticFiles
+from starlette.middleware.sessions import SessionMiddleware
 import pymongo
 import os
 from dotenv import load_dotenv
@@ -24,6 +25,8 @@ app.add_middleware(
     allow_methods=["*"], 
     allow_headers=["*"], 
 )
+app.add_middleware(SessionMiddleware, secret_key="ibuildknockie")
+
 
 class UserData(BaseModel):
     title:str
