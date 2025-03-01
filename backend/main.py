@@ -15,7 +15,8 @@ load_dotenv()
 app=FastAPI()
 origins = [
     "https://my-to-do-web-app-p85l.vercel.app",  
-    "https://my-to-do-web-app.vercel.app",  
+    "https://my-to-do-web-app.vercel.app",
+    "https://my-to-do-web-app.vercel.app/todo",  
     "http://127.0.0.1:5500" 
 ]
 
