@@ -17,7 +17,8 @@ origins = [
     "https://my-to-do-web-app-p85l.vercel.app",  
     "https://my-to-do-web-app.vercel.app/", 
     "http://127.0.0.1:8000/",
-    "http://127.0.0.1:5500/"
+    "http://127.0.0.1:5500/",
+    "http://127.0.0.1:5500"
 ]
 
 app.add_middleware(
