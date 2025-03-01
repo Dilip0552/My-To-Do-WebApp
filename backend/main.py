@@ -1,4 +1,4 @@
-from fastapi import FastAPI, Form
+from fastapi import FastAPI, Form, Request, Response, HTTPException
 from pydantic import BaseModel
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
@@ -29,6 +29,15 @@ class UserData(BaseModel):
     title:str
     by:str
     more_details:str
+
+class SignUpData(BaseModel):
+    fname:str
+    email:str
+    password:str
+
+class LoginData(BaseModel):
+    email_login:str
+    password_login:str
 
 MONGO_URI = os.getenv("MONGO_URI")
 if not MONGO_URI:
