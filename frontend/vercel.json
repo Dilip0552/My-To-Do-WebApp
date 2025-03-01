@@ -1,7 +1,7 @@
 {
   "rewrites": [
     { "source": "/login", "destination": "/login.html" },
-    { "source": "/todo", "destination": "/todo.html" }
+    { "source": "/todo", "destination": "/todos.html" }
   ],
   "redirects": [
     { "source": "/", "destination": "/login", "statusCode": 302 }
