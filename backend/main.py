@@ -168,6 +168,6 @@ def logout(request:Request):
     response = RedirectResponse(url="/login")
 
     if "session_id" in request.cookies:
-        response.delete_cookie("session_id", path="/")  # Ensure it's deleted for the whole site
+        response.delete_cookie("session_id", path="/") 
     
     return response
