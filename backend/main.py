@@ -99,3 +99,43 @@ def delete_it(title):
     except Exception as e:
         return JSONResponse(content={"error": str(e)}, status_code=500)
     
+
+@app.post("/submit")
+def submit_data(user: SignUpData):
+    try:
+        client=pymongo.MongoClient(MONGO_URI)
+        db=client["Credentials"]
+        collection=db["Passwords"]
+        collection.insert_one(user.dict())
+        return {"message": "Account created successfully!", "data": user.dict()}
+    
+    except Exception as e:
+        print(e)
+        return {"message":"An error occurred"}
+    
+@app.post("/credentials")
+def read_credentials(request:Request,login_cred:LoginData):
+    try:
+        client=pymongo.MongoClient(MONGO_URI)
+        db=client["Credentials"]
+        collection=db["Passwords"]
+        one=collection.find_one({"email":login_cred.email_login})
+        one["_id"] = str(one["_id"])
+        if one["password"]==login_cred.password_login:
+            request.session["user"]=login_cred.email_login
+            raise HTTPException(status_code=401, detail="Invalid credentials")
+            # return {"message": "Login successful"}
+        
+        else:
+            return {"message":"Invalid Credentials"}
+        
+    except Exception as e:
+        return {"message": f"Error retrieving data: {str(e)}"}
+
+@app.get("/todos")
+async def get_todos(request: Request):
+    user = request.session.get("user")
+    if not user:
+        raise HTTPException(status_code=401, detail="Not authenticated")
+    
+    return {"message": f"Welcome {user}! Here are your To-Do tasks"}
