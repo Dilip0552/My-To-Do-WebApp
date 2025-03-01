@@ -163,6 +163,6 @@ async def get_todos(request: Request):
 
 @app.get("/logout")
 def logout():
-    response = RedirectResponse(url="/login")
+    response = RedirectResponse(url="/credentials")
     response.delete_cookie("session_id")
     return response
