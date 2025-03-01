@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>To Do</title>
+</head>
+<body>
+    <div id="app">
+        <div id="header">
+            <img src="/assets/planning (1).png"></img>
+            <h3>Tasks Lists</h3>
+            <div id="refresh">
+                <img id="refreshImg" src="assets/loading-arrow.png" alt="">
+            </div>
+        </div>
+        <div id="tasks">
+             <hr id="hr-vip1">
+        
+            
+        </div>
+        <div id="options">
+            <button id="new_task_btn" class="blue_button" onclick="new_task()">New Task</button>
+        </div>
+    </div>
+    <div id="new_task">
+        <h2>New Task</h2>
+        <hr>
+            <div class="wrapper" data-place="--Title--">
+                <input type="text" id="title" placeholder="Task Title"  class="d_inp" required>
+            </div>
+            <div class="wrapper" data-place="--By--">
+                <input type="text" id="by-name" placeholder="By"  class="d_inp" required>
+            </div>
+            <div class="wrapper" data-place="--More Details--">
+                <input type="text" id="more-details" placeholder="More Details"  class="d_inp" required>
+            </div>
+            <div class="wrapper" data-place="--Tag--">
+                <input type="text" id="tag" placeholder="Tag"  class="d_inp" required>
+            </div>
+            <div id="new_task_option">
+                <button id="cancel" class="cancel" onclick="document.getElementById('new_task').style.visibility='hidden'">Cancel</button>
+                <button id="add_task" class="blue_button" onclick="add_task()">Add Task</button>
+            </div>
+    </div>
+    <div id="edit-task">
+        <h1>Edit Task</h1>
+        <hr>
+            <div class="wrapper" data-place="--Title--">
+                <input type="text" id="e_title" placeholder="Task Title"  class="d_inp" required readonly>
+            </div>
+            <div class="wrapper" data-place="--By--">
+                <input type="text" id="e_by-name" placeholder="By"  class="d_inp" required>
+            </div>
+            <div class="wrapper" data-place="--More Details--">
+                <input type="text" id="e_more-details" placeholder="More Details"  class="d_inp" required>
+            </div>
+            <div class="wrapper" data-place="--Tag--">
+                <input type="text" id="e_tag" placeholder="Tag"  class="d_inp" required>
+            </div>
+            <div id="new_task_option">
+                <button id="e_cancel" class="cancel" onclick="document.getElementById('edit-task').style.visibility='hidden'">Cancel</button>
+                <button id="save" class="blue_button" onclick="save()">Save</button>
+            </div>
+    </div>
+    <div id="error">Not Compatible for your device.</div>
+    <p id="my-tag">Made with ❤️ By Dilip Suthar</p>
+    <script src="script.js"></script>
+</body>
+</html>

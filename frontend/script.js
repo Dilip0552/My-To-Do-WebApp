@@ -1,16 +1,23 @@
+async function fetchTodos() {
+    const response = await fetch("https://my-to-do-web-app.vercel.app/todos", {
+        credentials: "include" 
+    });
+
+    if (response.ok) {
+        const data = await response.json();
+        alert(data.message)
+    } else {
+        alert("Please log in first.");
+        window.location.href = "index.html";  
+    }
+}
+window.onload = fetchTodos;
 function new_task(){
     const dialog=document.getElementById("new_task")
     dialog.style.display="flex"
     dialog.style.visibility="visible"
     
 }
-// const dialog=document.getElementById("app")
-
-// dialog.addEventListener("volumechange",function myFucn(){
-//     alert("File Dropped");
-//     console.log("Hello")
-// })
-
 
 async function send_data(title,by,more_details){
     const response = await fetch("https://my-to-do-web-app.vercel.app/add_task",{
@@ -169,3 +176,21 @@ document.getElementById("refreshImg").addEventListener("click", function() {
     refresh_tasks()
 });
 window.addEventListener("load", refresh_tasks());
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
