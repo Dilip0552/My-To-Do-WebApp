@@ -184,7 +184,7 @@ document.getElementById("log-out-btn").addEventListener("click", () => {
     fetch('https://my-to-do-web-app.vercel.app/logout', { method: 'GET' }) 
     .then(response => {
         if (response.redirected) {
-            window.location.href = response.url; 
+            window.location.href = "https://my-to-do-web-app-p85l.vercel.app/login"; 
         }
     });
 });
