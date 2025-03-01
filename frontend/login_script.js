@@ -89,7 +89,7 @@ async function login() {
     credentials:"include"
 });
   if (response.ok){
-    window.location.href = "todo.html";
+    window.location.href = "todo";
   }
   else{
     alert("Login Failed");
