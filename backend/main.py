@@ -131,19 +131,20 @@ def submit_data(user: SignUpData):
 @app.post("/credentials")
 def read_credentials(request:Request,login_cred:LoginData):
     try:
-        client=pymongo.MongoClient(MONGO_URI)
-        db=client["Credentials"]
-        collection=db["Passwords"]
-        one=collection.find_one({"email":login_cred.email_login})
-        one["_id"] = str(one["_id"])
-        if one["password"]==login_cred.password_login:
-            request.session["user"]=login_cred.email_login
+        client = pymongo.MongoClient(MONGO_URI)
+        db = client["Credentials"]
+        collection = db["Passwords"]
+        user = collection.find_one({"email": login_cred.email_login})
+
+        if not user:
             raise HTTPException(status_code=401, detail="Invalid credentials")
-            # return {"message": "Login successful"}
-        
-        else:
-            return {"message":"Invalid Credentials"}
-        
+
+        if user["password"] != login_cred.password_login:
+            raise HTTPException(status_code=401, detail="Invalid credentials")
+
+        request.session["user"] = login_cred.email_login  
+        return {"message": "Login successful"}
+
     except Exception as e:
         return {"message": f"Error retrieving data: {str(e)}"}
 
