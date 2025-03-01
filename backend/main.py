@@ -27,7 +27,9 @@ app.add_middleware(
     allow_methods=["*"], 
     allow_headers=["*"], 
 )
-app.add_middleware(SessionMiddleware, secret_key="ibuildknockie")
+app.add_middleware(SessionMiddleware, secret_key="ibuildknockie",session_cookie="session_id",
+    same_site="none",  
+    https_only=False)
 
 
 class UserData(BaseModel):
