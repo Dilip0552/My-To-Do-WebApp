@@ -181,7 +181,7 @@ window.addEventListener("load", refresh_tasks());
 
 
 document.getElementById("log-out-btn").addEventListener("click", () => {
-    fetch('https://my-to-do-web-app.vercel.app//logout', { method: 'GET' }) 
+    fetch('https://my-to-do-web-app.vercel.app/logout', { method: 'GET' }) 
     .then(response => {
         if (response.redirected) {
             window.location.href = response.url; 
