@@ -166,7 +166,7 @@ async def get_todos(request: Request):
 
 @app.get("/logout",methods=["GET","POST"])
 def logout(request:Request):
-    response = RedirectResponse(url="/login")
+    response = RedirectResponse(url="/credentials")
 
     if "session_id" in request.cookies:
         response.delete_cookie("session_id", path="/") 
