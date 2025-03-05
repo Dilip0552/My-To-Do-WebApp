@@ -88,6 +88,7 @@ async function login() {
     body: JSON.stringify({"email_login":email_login,"password_login":password_login }),
     credentials:"include"
 });
+  console.log(response)
   if (response.ok){
     window.location.href = "todo";
   }
