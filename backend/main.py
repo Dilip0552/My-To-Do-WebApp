@@ -145,10 +145,13 @@ def read_credentials(request:Request,login_cred:LoginData):
         user = collection.find_one({"email": login_cred.email_login})
 
         if not user:
-            raise HTTPException(status_code=401, detail="Invalid credentials")
+            # raise HTTPException(status_code=401, detail="Invalid credentials")
+            return {"message": "User not found"}
 
         if user["password"] != login_cred.password_login:
-            raise HTTPException(status_code=401, detail="Invalid credentials")
+            # raise HTTPException(status_code=401, detail="Invalid credentials")
+            return {"message": "Incorrect Password"}
+
 
         request.session["user"] = user["fname"] 
         return {"message": "Login successful"}
