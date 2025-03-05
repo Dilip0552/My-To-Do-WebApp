@@ -80,7 +80,7 @@ async function send_data() {
 async function login() {
   const email_login = document.getElementById("email_login").value;
   const password_login = document.getElementById("password_login").value;
-  const response = await fetch(`https://my-to-do-web-app.vercel.app/credentials/`, {
+  const response = await fetch(`https://my-to-do-web-app.vercel.app/credentials`, {
     method: "POST",
     headers: {
         "Content-Type": "application/json",
