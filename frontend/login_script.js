@@ -88,16 +88,11 @@ async function login() {
     body: JSON.stringify({"email_login":email_login,"password_login":password_login }),
     credentials:"include"
 });
-  data= await response.json()
-  console.log(data)
-  // if (response.ok){
-  //   window.location.href = "todo";
-  // }
-  // else{
-  //   alert("Login Failed");
-  // }
-  console.log(data.message)
+  const data= await response.json()
   alert(data.message)
+  if (data.message=="Login successful"){
+    window.location.href="/todo"
+  }
  
 }
 function enter_btn_login(el){
