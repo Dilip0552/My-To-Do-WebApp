@@ -8,7 +8,7 @@ async function fetchTodos() {
         alert(data.message)
     } else {
         alert("Please log in first.");
-        window.location.href = "index.html";  
+        window.location.href = "/login";  
     }
 }
 window.onload = fetchTodos;
@@ -188,7 +188,7 @@ document.getElementById("log-out-btn").addEventListener("click", () => {
     .then(response => response.json())
     .then(data => {
         console.log(data.message); 
-        window.location.href = "/login.html"; 
+        window.location.href = "/login"; 
     });
 });
 
