@@ -88,15 +88,13 @@ async function login() {
     body: JSON.stringify({"email_login":email_login,"password_login":password_login }),
     credentials:"include"
 });
-  // if (response.ok){
-  //   window.location.href = "todo";
-  // }
-  // else{
-  //   alert("Login Failed");
-  // }
-  alert(response.message)
-  console.log(response)
-  console.log(response.message)
+  if (response.ok){
+    window.location.href = "todo";
+  }
+  else{
+    alert("Login Failed");
+  }
+ 
 }
 function enter_btn_login(el){
 	el.addEventListener("keydown", function(event) {
