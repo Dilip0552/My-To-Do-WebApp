@@ -95,6 +95,8 @@ async function login() {
   //   alert("Login Failed");
   // }
   alert(response.message)
+  console.log(response)
+  console.log(response.message)
 }
 function enter_btn_login(el){
 	el.addEventListener("keydown", function(event) {
