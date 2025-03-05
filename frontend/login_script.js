@@ -89,12 +89,14 @@ async function login() {
     credentials:"include"
 });
   console.log(response)
-  if (response.ok){
-    window.location.href = "todo";
-  }
-  else{
-    alert("Login Failed");
-  }
+  // if (response.ok){
+  //   window.location.href = "todo";
+  // }
+  // else{
+  //   alert("Login Failed");
+  // }
+  console.log(response.message)
+  alert(response.message)
  
 }
 function enter_btn_login(el){
