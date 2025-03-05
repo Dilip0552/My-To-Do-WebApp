@@ -181,11 +181,14 @@ window.addEventListener("load", refresh_tasks());
 
 
 document.getElementById("log-out-btn").addEventListener("click", () => {
-    fetch('https://my-to-do-web-app.vercel.app/logout', { method: 'GET',credentials: 'include'  }) 
-    .then(response => {
-        if (response.redirected) {
-            window.location.href = "https://my-to-do-web-app-p85l.vercel.app/login"; 
-        }
+    fetch("https://my-to-do-web-app.vercel.app/logout", {
+        method: "POST",
+        credentials: "include"  
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log(data.message); 
+        window.location.href = "/login.html"; 
     });
 });
 
