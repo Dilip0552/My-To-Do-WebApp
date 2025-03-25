@@ -66,7 +66,6 @@ except:
 def add_task(data:UserData):
     try:
         global client
-        # client=pymongo.MongoClient(MONGO_URI)
         db=client["To-Do"]
         collection=db["details"]
         collection.insert_one(data.dict())
@@ -78,7 +77,6 @@ def add_task(data:UserData):
 def refresh_tasks():
     try:
         global client
-        # client=pymongo.MongoClient(MONGO_URI)
         db=client["To-Do"]
         collection=db["details"]
         data = list(collection.find({}, {"_id": 0}))
@@ -93,7 +91,6 @@ def getItem(title):
     try:
         title=unquote(title)
         global client
-        # client=pymongo.MongoClient(MONGO_URI)
         db=client["To-Do"]
         collection=db["details"]
         one=collection.find_one({"title":title})
@@ -109,7 +106,6 @@ def getItem(title):
 def update_it(data: UserData):
     try:
         global client
-        # client = pymongo.MongoClient(MONGO_URI)
         db = client["To-Do"]
         collection = db["details"]
         result = collection.update_one({"title": data.title}, {"$set": data.dict()})
@@ -123,7 +119,6 @@ def delete_it(title):
     try:
         title=unquote(title)
         global client
-        # client = pymongo.MongoClient(MONGO_URI)
         db = client["To-Do"]
         collection = db["details"]
         collection.delete_one({"title":title})
@@ -151,17 +146,14 @@ def submit_data(user: SignUpData):
 def read_credentials(request:Request,login_cred:LoginData):
     try:
         global client
-        # client = pymongo.MongoClient(MONGO_URI)
         db = client["Credentials"]
         collection = db["Passwords"]
         user = collection.find_one({"email": login_cred.email_login})
 
         if not user:
-            # raise HTTPException(status_code=401, detail="Invalid credentials")
             return {"message": "User not found"}
 
         if user["password"] != login_cred.password_login:
-            # raise HTTPException(status_code=401, detail="Invalid credentials")
             return {"message": "Incorrect password"}
 
 

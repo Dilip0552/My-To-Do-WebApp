@@ -4,6 +4,7 @@
     { "source": "/todo", "destination": "/todo.html" }
   ],
   "redirects": [
-    { "source": "/", "destination": "/login", "statusCode": 302 }
+    { "source": "/", "destination": "/login", "statusCode": 302 },
+    {"source":"/todo", "destination":"https://my-to-do-web-app.vercel.app/todos"}
   ]
 }
