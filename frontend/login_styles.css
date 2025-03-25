@@ -267,12 +267,18 @@ body{
     top: 50%;
 }
 
-/* @media (min-height:720px) {
-    body{
-        overflow-y: auto;
-        overflow-x: hidden;
-    }
-} */
+.opt{
+    color:rgb(242, 225, 225);
+    font-size: 1.04rem;
+}
+.opt button{
+    background-color: transparent;
+    border:none;
+    color:#2e75c0;
+    font-weight: 500;
+    cursor: pointer;
+}
+
 
 @media (max-width:370px){
     #main-container{
@@ -280,5 +286,10 @@ body{
     }
     #device-compatibility{
         display: flex;
+    }
+}
+@media (max-width:800px){
+    #main-container{
+        height: 75vh;
     }
 }

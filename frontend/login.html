@@ -19,6 +19,8 @@
                     <div class="wrapper" data-placeholder="Email address"><input type="email" id="email_login" placeholder="Email address" required></div>
                     <div class="wrapper" data-placeholder="Password"><input type="password" id="password_login" placeholder="Password" required></div>
                     <button id="sign-in-btn" onclick="login()">Sign In</button>
+                    <div id="signup-redirect" class="opt">Don't have an account? <button onclick="move()">SignUp</button></div>
+
             </div>
 
             <div id="middle-bar-sign-up">
@@ -27,6 +29,8 @@
                 <input type="password" id="password" placeholder="Create Password" required>
                 <input type="password" id="cnf_password" placeholder="Confirm Password" required>
                 <button id="sign-up-btn" onclick="send_data()">Sign Up</button>
+                <div id="signin-redirect" class="opt">Already have an account? <button onclick="move()">SignIn</button></div>
+
             </div>
         </div>
     </div>
