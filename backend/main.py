@@ -56,13 +56,17 @@ class LoginData(BaseModel):
 MONGO_URI = os.getenv("MONGO_URI")
 if not MONGO_URI:
     raise ValueError("❌ MONGO_URI is not set in environment variables!")
+try:
+    client = pymongo.MongoClient(MONGO_URI)
+except:
+    raise HTTPException(detail="Could not connect database server")
 
-client = pymongo.MongoClient(MONGO_URI)
 
 @app.post("/add_task")
 def add_task(data:UserData):
     try:
-        client=pymongo.MongoClient(MONGO_URI)
+        global client
+        # client=pymongo.MongoClient(MONGO_URI)
         db=client["To-Do"]
         collection=db["details"]
         collection.insert_one(data.dict())
@@ -73,7 +77,8 @@ def add_task(data:UserData):
 @app.get("/my_tasks")
 def refresh_tasks():
     try:
-        client=pymongo.MongoClient(MONGO_URI)
+        global client
+        # client=pymongo.MongoClient(MONGO_URI)
         db=client["To-Do"]
         collection=db["details"]
         data = list(collection.find({}, {"_id": 0}))
@@ -87,7 +92,8 @@ def refresh_tasks():
 def getItem(title):
     try:
         title=unquote(title)
-        client=pymongo.MongoClient(MONGO_URI)
+        global client
+        # client=pymongo.MongoClient(MONGO_URI)
         db=client["To-Do"]
         collection=db["details"]
         one=collection.find_one({"title":title})
@@ -102,7 +108,8 @@ def getItem(title):
 @app.put("/update")
 def update_it(data: UserData):
     try:
-        client = pymongo.MongoClient(MONGO_URI)
+        global client
+        # client = pymongo.MongoClient(MONGO_URI)
         db = client["To-Do"]
         collection = db["details"]
         result = collection.update_one({"title": data.title}, {"$set": data.dict()})
@@ -115,7 +122,8 @@ def update_it(data: UserData):
 def delete_it(title):
     try:
         title=unquote(title)
-        client = pymongo.MongoClient(MONGO_URI)
+        global client
+        # client = pymongo.MongoClient(MONGO_URI)
         db = client["To-Do"]
         collection = db["details"]
         collection.delete_one({"title":title})
@@ -142,7 +150,8 @@ def submit_data(user: SignUpData):
 @app.post("/credentials")
 def read_credentials(request:Request,login_cred:LoginData):
     try:
-        client = pymongo.MongoClient(MONGO_URI)
+        global client
+        # client = pymongo.MongoClient(MONGO_URI)
         db = client["Credentials"]
         collection = db["Passwords"]
         user = collection.find_one({"email": login_cred.email_login})
