@@ -169,8 +169,8 @@ async def get_todos(request: Request):
     if not user:
         raise HTTPException(status_code=401, detail="Not authenticated")
     else:
-        RedirectResponse(url="https://my-to-do-web-app-p85l.vercel.app/todo")
-    return {"message": f"Welcome {user}! Here are your To-Do tasks"}
+        return RedirectResponse(url="https://my-to-do-web-app-p85l.vercel.app/todo")
+        # return {"message": f"Welcome {user}! Here are your To-Do tasks"}
 
 @app.post("/logout")
 async def logout(request: Request):
